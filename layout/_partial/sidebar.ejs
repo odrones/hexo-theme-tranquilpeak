@@ -11,17 +11,16 @@
 <% } %>
 <nav id="sidebar" data-behavior="<%= sidebarBehavior %>">
     <div class="sidebar-container">
-        <% if (authorPicture) { %>
+        <a href="/">
             <div class="sidebar-profile">
-                <a href="<%- url_for('/#about') %>">
-                    <img class="sidebar-profile-picture" src="<%= authorPicture %>" alt="<%= __('global.author_picture') %>"/>
+                <a href="<%- url_for(' ') %>">
+                    <img class="sidebar-profile-picture"  src="/images/odrones-sidebar.png" alt="<%= __('global.author_picture') %>"/>
                 </a>
-                <h4 class="sidebar-profile-name"><%= config.author %></h4>
+                <h4 class="sidebar-profile-name">ODrones</h4>
                 <% if (__('author.bio')) { %>
                     <h5 class="sidebar-profile-bio"><%- markdown(__('author.bio')) %></h5>
                 <% } %>
             </div>
-        <% } %>
         <% for (var i in theme.sidebar) { %>
             <ul class="sidebar-buttons">
             <% for (var n in theme.sidebar[i]) { %>

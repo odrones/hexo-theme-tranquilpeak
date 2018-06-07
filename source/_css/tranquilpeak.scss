@@ -65,3 +65,37 @@
 @import
     'themes/hljs-tranquilpeak',
     'themes/hljs-custom';
+
+
+.breadcumbs {
+  background-color: #fff;
+  border-left: 6px solid #222;
+  box-shadow: 0 2px rgba(0,0,0,0.05);
+  margin: 0 0 40px;
+  padding: 20px 50px;
+}
+
+#cover {
+  background-color: #616161;
+}
+
+.media {
+  display: flex;
+  align-items: flex-start;
+}
+.media-figure {
+  margin-right: 1em;
+}
+.media-body {
+  flex: 1;
+}
+
+.author-box {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 2px;
+}
+
+#about-card-name {
+  margin: 0px;
+}

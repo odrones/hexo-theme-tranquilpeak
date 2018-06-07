@@ -166,4 +166,10 @@
     <!--STYLES END-->
     <%- partial('google-analytics') %>
     <%- partial('baidu-analytics') %>
+
+    <% if (is_post() && config.generator_amp){ %>
+      <link rel="amphtml" href="<%= config.url %>/<%= page.path %>amp/index.html">
+      <link rel="canonical" href="<%= config.url + '/' + page.path %>"/>
+    <% } %>
+
 </head>

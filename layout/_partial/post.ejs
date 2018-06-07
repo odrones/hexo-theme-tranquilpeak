@@ -20,7 +20,33 @@
     postContent = postContent.replace(/<!-- ?endcontent ?-->/g, '</div>')
                                .replace(/<!-- ?content ?-->/g, '<div class="main-content-wrap">');
 %>
-<article class="post">
+<article class="post" href="<%= config.url + '/' + page.path %>">
+
+  <link itemprop="mainEntityOfPage" href="<%= config.url + '/' + page.path %>">
+
+      <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Lucas Buzzo">
+       <meta itemprop="description" content="Sempre se interessou pelo voo e a liberdade que ele transmite. Graduando em Ciência da Computação. Acredita que o Brasil tem um grande potencial e, por esta razão, fundou ODrones, para difundir a tecnologia que já é febre no exterior.">
+       <meta itemprop="image" content="<%= config.url + '/images/lucas-buzzo.jpg' %>">
+      </span>
+
+      <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="ODrones">
+       <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+         <img style="display:none;" itemprop="url image" alt="ODrones" src="<%= config.url + '/images/odrones.png' %>">
+       </span>
+      </span>
+      <% if (post.eyeCatchImage && post.eyeCatchImage != "" && post.eyeCatchImageProperty && post.eyeCatchImageProperty.width && post.eyeCatchImageProperty.height){ %>
+
+      <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject" style="display: none">
+        <img itemprop="image" id="ImagemPost" src="<%= config.url + post.thumbnailImage %>" />
+        <meta itemprop="url" content="<%= config.url + post.thumbnailImage %>">
+        <meta itemprop="width" content="<%= post.eyeCatchImageProperty.width %>">
+        <meta itemprop="height" content="<%= post.eyeCatchImageProperty.height %>">
+      </div>
+
+      <% } %>
+
     <% if (post.coverCaption) { %>
         <span class="post-header-cover-caption caption"><%= post.coverCaption %></span>
     <% } %>
@@ -31,6 +57,20 @@
         <div class="main-content-wrap">
             <%- postContent %>
             <%- partial('post/gallery') %>
+
+            <br />
+
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- ODrones baixo -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-8608728242955074"
+                 data-ad-slot="8264240945"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
@@ -40,6 +80,20 @@
                 <%- partial('post/tag', {tags: post.tags})%>
             </div>
         <% } %>
+
+          <div class="media author-box">
+
+              <div class="media-figure">
+                  <img id="about-card-picture" src="<%= config.authorDetail.avatar.path %>" alt="<%= config.authorDetail.authorReading %>" width="<%= config.authorDetail.avatar.width %>px" height="<%= config.authorDetail.avatar.height %>px"/>
+              </div>
+
+              <div class="media-body">
+                  <h4 id="about-card-name"><%= config.authorDetail.authorReading %></h4>
+                  <p id="about-card-bio"><%= config.authorDetail.description %></p>
+              </div>
+
+          </div>
+
         <% if (post.actions === undefined || post.actions) { %>
             <%- partial('post/actions', {postContent: postContent}) %>
         <% } %>
@@ -52,4 +106,3 @@
         <% } %>
     </div>
 </article>
-

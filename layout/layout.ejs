@@ -38,5 +38,13 @@
         <% } %>
         <%- partial('_partial/cover', null, {cache: !config.relative_link}) %>
         <%- partial('_partial/script', {post: page}) %>
+
+        <script src="https://cdn.ampproject.org/v0.js"></script>
+        <% if (page.video) { %>
+          <%if (page.video == 'youtube') { %>
+            <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+          <% } %>
+        <% } %>
+
     </body>
 </html>

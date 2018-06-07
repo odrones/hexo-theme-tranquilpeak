@@ -1,5 +1,6 @@
 <div class="<%= (classes ? classes.join(' ') : '') %>">
-    <time datetime="<%= post.date.format() %>">
+    <time itemprop="datePublished" datetime="<%= post.date.format() %>">
+    <time itemprop="dateModified" datetime="<%= post.updated.format() %>"></time>
 	<% if (post.lang) { %>
 		    <%= post.date.locale(post.lang).format(__('date_format')) %>
     	<% } else { %>
@@ -9,5 +10,40 @@
     <% if ((post.categories) && (post.categories.length > 0)) { %>
         <span><%= __('post.categorized_in')  %> </span>
         <%- partial('category', {categories: post.categories})%>
+
+        <% if(is_post()) { %>
+          <div class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <span xmlns:v="http://rdf.data-vocabulary.org/#">
+              <span typeof="v:Breadcrumb">
+                <a href="<%= config.url + '/' %>" rel="v:url" property="v:title">
+                  Início
+                </a>
+                »
+                <span rel="v:child" typeof="v:Breadcrumb">
+                  <a href="<%= config.url + '/' + post.categories.first().path %>" rel="v:url" property="v:title">
+                    <%= post.categories.first().name %>
+                  </a>
+                  »
+                  <strong class="breadcrumb_last">
+                    <%= post.title %>
+                  </strong>
+                </span>
+              </span>
+            </span>
+          </div>
+        <% } %>
     <% } %>
 </div>
+
+
+<% if(is_post()) { %>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-8608728242955074"
+       data-ad-slot="9880574948"
+       data-ad-format="auto"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% } %>

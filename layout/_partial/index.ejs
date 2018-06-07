@@ -2,7 +2,11 @@
     <% page.posts.each(function(post) { %>
     <%
         var tableOfContents = null;
-        var thumbnailImageUrl = post.thumbnailImageUrl;
+        if (post.thumbnailImage) {
+          var thumbnailImageUrl = config.url + post.thumbnailImage.replace('/images/', '/images/thumb-');
+        } else {
+          var thumbnailImageUrl = config.url + 'undefined';
+        }
         var postContent = post.content;
         // Define default position for the thumbnail image
         var thumbnailImagePosition = theme.thumbnail_image_position;
@@ -30,10 +34,10 @@
     %>
     <article class="postShorten postShorten--thumbnailimg-<%= thumbnailImagePosition %>">
         <div class="postShorten-wrap">
-            <% if (thumbnailImageUrl !== null && thumbnailImagePosition === "top") { %>
+          <% if (thumbnailImageUrl != (config.url + 'undefined') && thumbnailImagePosition === "top") { %>
                 <a href="<%- url_for(post.path) %>">
                     <div class="postShorten-thumbnailimg">
-                        <img alt="" src="<%= thumbnailImageUrl %>"/>
+                      <img alt="<%= post.title || '(' + __('post.no_title') + ')' %>" itemprop="image" src="<%= thumbnailImageUrl %>" width="140" height="140"/>
                     </div>
                 </a>
                 <% thumbnailImageUrl = null; %>
@@ -86,10 +90,10 @@
                 </div>
             <% } %>
         </div>
-        <% if (thumbnailImageUrl !== null && thumbnailImagePosition !== "top") { %>
+        <% if (thumbnailImageUrl != (config.url + 'undefined') && thumbnailImagePosition !== "top") { %>
             <a href="<%- url_for(post.path) %>">
                 <div class="postShorten-thumbnailimg">
-                    <img alt="" src="<%= thumbnailImageUrl %>"/>
+                  <img alt="<%= post.title || '(' + __('post.no_title') + ')' %>" itemprop="image" src="<%= thumbnailImageUrl %>" width="140" height="140"/>
                 </div>
             </a>
             <% thumbnailImageUrl = null; %>

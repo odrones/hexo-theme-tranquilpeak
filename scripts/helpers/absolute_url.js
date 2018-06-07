@@ -17,5 +17,5 @@ hexo.extend.helper.register('absolute_url', function(url) {
   // remove `root` part
   url = url.replace(regRoot, '/');
   // prepend with `config.url` set in Hexo configuration file
-  return hexo.config.url + url;
+  return hexo.config.url + "/" + url;
 });
