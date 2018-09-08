@@ -155,18 +155,14 @@
             <meta property="fb:admins" content="<%= fb_admin_id %>" />
         <% }) %>
     <% } %>
-    <% if (theme.gravatar_email) { %>
-        <meta property="og:image" content="<%- gravatar(theme.gravatar_email, 640) %>"/>
-    <% } else if (theme.author.picture) { %>
-        <meta property="og:image" content="<%= resolve_asset_url(theme.image_dir, theme.author.picture) %>"/>
-    <% } %>
+
     <% if (page.thumbnailImage && page.thumbnailImage.length) { %>
-        <meta property="og:image" content="<%= resolve_asset_url(page.path, page.thumbnailImage) %>"/>
-        <meta class="swiftype" name="image" data-type="enum" content="<%= resolve_asset_url(page.path, page.thumbnailImage) %>" />
+        <meta property="og:image" content="<%= 'https://odrones.com.br' + page.thumbnailImage %>"/>
+        <meta class="swiftype" name="image" data-type="enum" content="<%= 'https://odrones.com.br' + page.thumbnailImage %>" />
     <% } %>
     <% if (page.coverImage && page.coverImage.length) { %>
-        <meta property="og:image" content="<%= resolve_asset_url(page.path, page.coverImage) %>"/>
-        <meta class="swiftype" name="image" data-type="enum" content="<%= resolve_asset_url(page.path, page.coverImage) %>" />
+      <meta property="og:image" content="<%= 'https://odrones.com.br' + page.coverImage %>"/>
+      <meta class="swiftype" name="image" data-type="enum" content="<%= 'https://odrones.com.br' + page.coverImage %>" />
     <% } %>
     <% if (photos && photos.length) { %>
         <% photos.forEach(function(photo) { %>
@@ -175,10 +171,8 @@
         <% }) %>
     <% } %>
     <!--STYLES-->
-    <%- css('assets/css/all.css') %>
-    <%- css('assets/css/jquery.fancybox.css') %>
-    <%- css('assets/css/thumbs.css') %>
-    <%- css('assets/css/tranquilpeak.css') %>
+    <%- css('assets/css/style-fdm8gqgryv3me1gq9p9tplhumoq7b4h6y46cnisopke4jk8pjrese97myghw.min.css') %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!--STYLES END-->
     <%- partial('google-analytics') %>
     <%- partial('baidu-analytics') %>

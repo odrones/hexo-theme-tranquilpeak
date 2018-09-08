@@ -33,25 +33,25 @@ sidebar:
         home:
             title: global.home
             url: /
-            icon: home
+            icon: fas fa-home
         articles:
             title: Artigos
             url: /categories/Artigos/
-            icon: book
+            icon: fas fa-book
         news:
             title: Notícias
             url: /categories/Noticias/
-            icon: newspaper-o
+            icon: far fa-newspaper
         interviews:
             title: Entrevistas
             url: /categories/Entrevistas/
-            icon: comments-o
+            icon: far fa-comments
 
     author_links:
         facebook:
             title: Facebook
             url: https://www.facebook.com/odrones
-            icon: facebook
+            icon: fab fa-facebook-f
 
     #author_links:
         # github:
@@ -98,7 +98,7 @@ sidebar:
 header:
     right_link:
         url: https://www.facebook.com/odrones
-        icon: facebook-square
+        icon: fab fa-facebook-square
         #class: open-algolia-search
 
 
@@ -233,13 +233,13 @@ fb_app_id:
 # ```
 sharing_options:
     facebook:
-        icon: "fab fa-facebook"
+        icon: "fa-facebook"
         url: "https://www.facebook.com/sharer/sharer.php?u={{post.permalink}}"
     twitter:
-        icon: "fab fa-twitter"
+        icon: "fa-twitter"
         url: "https://twitter.com/intent/tweet?text={{post.permalink}}"
     google_plus:
-        icon: "fab fa-google-plus"
+        icon: "fa-google-plus"
         url: "https://plus.google.com/share?url={{post.permalink}}"
     # Asian social networks
 #    weibo:

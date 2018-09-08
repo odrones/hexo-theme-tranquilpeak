@@ -8,7 +8,7 @@
                 <% } else { %>
                     <a class="post-action-btn btn btn--disabled">
                 <% } %>
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <i class="fas fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml"><%= __('pagination.previous') %></span>
                 </a>
             </li>
@@ -20,7 +20,7 @@
                     <a class="post-action-btn btn btn--disabled">
                 <% } %>
                     <span class="hide-xs hide-sm text-small icon-mr"><%= __('pagination.next') %></span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <i class="fas fa-angle-right" aria-hidden="true"></i>
                 </a>
             </li>
         </ul>
@@ -28,7 +28,7 @@
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
             <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="<%= __('post.share') %>">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                <i class="fas fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
         <% for(var option in theme.sharing_options)  {%>
@@ -36,7 +36,7 @@
             <% var url = generate_sharing_link(post, theme.sharing_options[option].url) %>
             <li class="post-action hide-xs">
                 <a class="post-action-btn btn btn--default" target="new" href="<%= url %>" title="<%= __('global.share_on_' + option) %>">
-                    <i class="<%= icon %>" aria-hidden="true"></i>
+                    <i class="fab <%= icon %>" aria-hidden="true"></i>
                 </a>
             </li>
         <% } %>
@@ -44,13 +44,13 @@
             <% if (theme.gitment.enable) { %>
                 <li class="post-action">
                     <a class="post-action-btn btn btn--default" href="#gitment">
-                         <i class="fa fa-comment"></i>
+                         <i class="fas fa-comment"></i>
                     </a>
                 </li>
             <% } else if (theme.disqus_shortname) { %>
                 <li class="post-action">
                     <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                        <i class="fa fa-comment"></i>
+                        <i class="fas fa-comment"></i>
                     </a>
                 </li>
             <% } %>
@@ -61,9 +61,8 @@
             <%} else { %>
                 <a class="post-action-btn btn btn--default" href="#" aria-label="<%= __('post.back_to_top') %>">
             <% } %>
-                <i class="fa fa-list" aria-hidden="true"></i>
+                <i class="fas fa-list" aria-hidden="true"></i>
             </a>
         </li>
     </ul>
 </div>
-

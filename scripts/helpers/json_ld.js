@@ -26,19 +26,25 @@ function jsonLd() {
 
   const author = {
     '@type': 'Person',
-    name: config.author,
-    sameAs: links
+    name: config.author.name,
+    sameAs: ["https://www.facebook.com/lcsbzo", "https://twitter.com/lcsbzo", "https://github.com/lubuzzo/"]
+  };
+
+  const empresa = {
+    '@type': 'Organization',
+    name: "ODrones",
+    sameAs: ["https://www.facebook.com/odrones", "https://twitter.com/odrones", "https://plus.google.com/+OdronesBr", "https://github.com/odrones/"]
   };
   // Google does not accept `Person` as item type for the publisher property
-  const publisher = Object.assign({}, author, {'@type': 'Organization'});
+  const publisher = Object.assign({}, empresa, {'@type': 'Organization'});
   let schema = {};
 
   if (authorImage) {
-    author.image = authorImage;
-    publisher.image = authorImage;
+    author.image = "https://odrones.com.br/" + authorImage;
+    publisher.image = "https://odrones.com.br/images/odrones.png";
     publisher.logo = {
       '@type': 'ImageObject',
-      url: authorImage
+      url: "https://odrones.com.br/images/odrones.png"
     };
   }
 
@@ -54,7 +60,7 @@ function jsonLd() {
       datePublished: page.date.format(),
       description: this.strip_html(page.excerpt),
       headline: page.title,
-      image: images,
+      image: "https://odrones.com.br" + page.thumbnailImage,
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': this.url_for(page.permalink)
@@ -77,10 +83,10 @@ function jsonLd() {
 
     if (page.thumbnailImage || page.coverImage) {
       images.unshift(page.thumbnailImage);
-      schema.thumbnailUrl = page.thumbnailImage || page.coverImage;
+      schema.thumbnailUrl = "https://odrones.com.br" + page.thumbnailImage || "https://odrones.com.br" + page.coverImage;
     }
 
-    schema.image = images;
+    //schema.image = images;
   }
   else if (this.is_page() || this.is_home()) {
     schema = {
@@ -90,7 +96,8 @@ function jsonLd() {
       author: author,
       name: config.title,
       description: config.description,
-      url: config.url
+      url: config.url,
+      publisher
     };
 
     if (config.keywords && config.keywords.length) {

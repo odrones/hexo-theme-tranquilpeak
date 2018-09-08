@@ -28,14 +28,22 @@
        <meta itemprop="name" content="Lucas Buzzo">
        <meta itemprop="description" content="Sempre se interessou pelo voo e a liberdade que ele transmite. Graduando em Ciência da Computação. Acredita que o Brasil tem um grande potencial e, por esta razão, fundou ODrones, para difundir a tecnologia que já é febre no exterior.">
        <meta itemprop="image" content="<%= config.url + '/images/lucas-buzzo.jpg' %>">
+       <meta itemprop="sameAs" content="https://www.facebook.com/lcsbzo">
+       <meta itemprop="sameAs" content="https://twitter.com/lcsbzo">
+       <meta itemprop="sameAs" content="https://github.com/lubuzzo/">
       </span>
 
-      <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-       <meta itemprop="name" content="ODrones">
-       <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-         <img style="display:none;" itemprop="url image" alt="ODrones" src="<%= config.url + '/images/odrones.png' %>">
-       </span>
+      <span itemscope itemtype="http://schema.org/Organization" style="display: none;" >
+        <meta itemprop="name" content="ODrones"/>
+        <meta itemprop="alternateName" content="ODrones"/>
+        <link itemprop="url" href="https://odrones.com.br"/>
+        <img itemprop="logo" src="https://odrones.com.br/images/odrones.png" style="display: none;" />
+        <a itemprop="sameAs" href="https://www.facebook.com/odrones" style="display: none;" >Facebook</a>
+        <a itemprop="sameAs" href="https://twitter.com/odrones" style="display: none;" >Twitter</a>
+        <a itemprop="sameAs" href="https://plus.google.com/+OdronesBr" style="display: none;" >Google+</a>
+        <a itemprop="sameAs" href="https://github.com/odrones/" style="display: none;" >Github</a>
       </span>
+
       <% if (post.eyeCatchImage && post.eyeCatchImage != "" && post.eyeCatchImageProperty && post.eyeCatchImageProperty.width && post.eyeCatchImageProperty.height){ %>
 
       <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject" style="display: none">
