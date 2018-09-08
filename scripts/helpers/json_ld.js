@@ -40,7 +40,7 @@ function jsonLd() {
   let schema = {};
 
   if (authorImage) {
-    author.image = "https://odrones.com.br/" + authorImage;
+    author.image = "https://odrones.com.br/images/" + authorImage;
     publisher.image = "https://odrones.com.br/images/odrones.png";
     publisher.logo = {
       '@type': 'ImageObject',
